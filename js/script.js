@@ -37,9 +37,10 @@ buttonElement.addEventListener("click", function(){
             console.log(this);
             //per mezzo di 'this' aggiungo una classe
             this.classList.toggle("active");
-
-            newElement.classList.add("even");
-            newElement.classList.add("odd");
+           // newElement.classList.add("even");
+            //newElement.classList.add("odd");
+            //voglio avere in console il numero
+            console.log(this.innerText);
     })
 
         //all'interno di se stesso ci aggiungo il nostro newElement
