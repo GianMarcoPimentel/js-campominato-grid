@@ -3,13 +3,34 @@
     padding: 0;
     box-sizing: border-box;
 }
+#intro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#logo{
+    display: flex;
+    align-items: center;
+}
+button{
+    padding: 10px;
 
+    border: 1px red solid;
+    border-radius: 20px;
+    color: red;
+    background-color: white;
+}
+img{
+    height: 100px;
+}
 .container{
     max-width: 1000px;
 
-    margin: 0 auto;
+    margin: 100px auto;
 
-    padding-top: 100px;
+    /* padding-top: 100px; */
+
+    background-color: #ff0088;
 
 }
 /* Stilizzo la grid */
@@ -19,8 +40,11 @@
 }
 /* Stilizzo le mie square */
 .square{
-    width: 70px;
-    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
     border: 1px solid black;
 }
 .square.active{
