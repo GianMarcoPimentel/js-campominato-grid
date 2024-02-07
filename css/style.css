@@ -4,7 +4,22 @@
     box-sizing: border-box;
 }
 
-.comntainer{
-    max-width: 1000px;
+.container{
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding-top: 100px;
+
+}
+/* Stilizzo la grid */
+#grid{
+    display: flex;
+    flex-flow: row wrap;
+}
+/* Stilizzo le mie square */
+.square{
+    width: 100px;
+    height: 100px;
     border: 1px solid black;
 }
