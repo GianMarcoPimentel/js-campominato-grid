@@ -24,6 +24,6 @@
     border: 1px solid black;
 }
 .square.active{
-    background-color: red;
+    background-color: skyblue;
     color: white;
 }
