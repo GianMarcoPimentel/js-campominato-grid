@@ -15,17 +15,29 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 // pendiasmo la nostra griglia
 // creiamo un ciclo for
     // per ogni iterazione creiamo una cella nella griglia
+const buttonElement = document.querySelector("#start");
+/* console.log(buttonElement); */
+buttonElement.addEventListener("click", function(){
 
-const gridElement = document.querySelector("#grid");
-console.log(gridElement);
+    const gridElement = document.querySelector("#grid");
+    /* console.log(gridElement); */
+    
+    //griglia 10x10
+    for (let i = 0; i < 100 ; i++){
+        // per ognunodi questi creare un elemento 
+        const newElement = document.createElement("div");
+        /* console.log(newElement); */
+        // ci aggiungo la classe
+        newElement.classList.add("square");
+        //all'interno di se stesso ci aggiungo il nostro newElement
+        gridElement.append(newElement);
+        newElement.addEventListener("click", function(){
+            /* console.log("click"); */
+            console.log(this);
+            //per mezzo di 'this' aggiungo una classe
+            this.classList.toggle("active");
+        
+    })
+    }
 
-//griglia 10x10
-for (let i = 0; i < 100 ; i++){
-    // per ognunodi questi creare un elemento 
-    const newElement = document.createElement("div");
-    console.log(newElement);
-    // ci aggiungo la classe
-    newElement.classList.add("square");
-    //all'interno di se stesso ci aggiungo il nostro newElement
-    gridElement.append(newElement);
-}
+})
