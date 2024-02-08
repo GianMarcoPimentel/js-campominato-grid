@@ -12,29 +12,59 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
+
+
+
 // pendiasmo la nostra griglia
 // creiamo un ciclo for
-    // per ogni iterazione creiamo una cella nella griglia
+    // per ogni iterazione creiamo una cella nella grigli
 const buttonElement = document.querySelector("#start");
 /* console.log(buttonElement); */
-buttonElement.addEventListener("click", function(){
-
+buttonElement.addEventListener("click", function() {
+    //salvo la griglia in una variabile
     const gridElement = document.querySelector("#grid");
-    /* console.log(gridElement); */
-    const RandomNumbersArray = getRandomNumbersArray();
-    console.log(RandomNumbersArray);
+    /* console.log(gridElement);*/
+
+    //codice per generare la griglia
+    let squareNumber;
+    //test per la select : stampiamone il valore
+    const selectElement = document.querySelector("#difficolta");
+    console.log(selectElement.value);
+    if(selectElement.value == "easy"){
+        squareNumber = 100;
+      // gridElement.className = "easy";
+    } else if (selectElement.value == "medium"){
+        squareNumber = 81;
+      // gridElement.className = "medium";
+    } else{
+        squareNumber = 49;
+     // gridElement.className = "hard";
+    }
+    // per ottimizzare meglio
+    gridElement.className = selectElement.value;
+   
+    // resetto la griglia in modo che al nuovpo click del pulsante non aggiunga altre griglie
+    gridElement.innerHTML="";
+    // faccio comparire la griglia
+    gridElement.style.display = "flex";
+    /* const RandomNumbersArray = getRandomNumbersArray();
+    console.log(RandomNumbersArray); */
     //griglia 10x10
-    for (let i = 0; i < 100 ; i++){
+    for (let i = 0; i < squareNumber ; i++){ // metto 'squareNumber' e non un numero in modo che possa cambiarlo in base alla difficoltà
         // per ognunodi questi creare un elemento 
         const newElement = document.createElement("div");
         /* console.log(newElement); */
         // ci aggiungo la classe
         newElement.classList.add("square");
-        newElement.innerText = RandomNumbersArray[i]; // per scrivere all'interno degli square i numeri da 1 a 100 ORDINATI
-        
+        /* newElement.innerText = RandomNumbersArray[i] ; */ // per scrivere all'interno degli square i numeri da 1 a 100 CASUALI
+        newElement.innerText = i + 1 ; // per scrivere all'interno degli square i numeri da 1 a 100 ORDINATI
+ 
+        //all'interno di se stesso ci aggiungo il nostro newElement
+        gridElement.append(newElement);
+
         newElement.addEventListener("click", function(){
             /* console.log("click"); */
-            console.log(this);
+            /* console.log(this); */ //per vedere dove agisce il this
             //per mezzo di 'this' aggiungo una classe
             this.classList.toggle("active");
            // newElement.classList.add("even");
@@ -42,39 +72,39 @@ buttonElement.addEventListener("click", function(){
             //voglio avere in console il numero
             console.log(this.innerText);
     })
-
-        //all'interno di se stesso ci aggiungo il nostro newElement
-        gridElement.append(newElement);
-
     }
-
 })
 
-//faccio la funzione per creare i numeri casuali all'interno degli square
+/* 
 
-function getRandomNumber(maxNumber){
+    //TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST
+    //faccio la funzione per creare i numeri casuali all'interno degli square
 
-    const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+    function getRandomNumber(maxNumber){
 
-    return randomNumber;
+        const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
 
-}
-getRandomNumbersArray();
-function getRandomNumbersArray(){
+        return randomNumber;
 
-    const numbersArray = [];
-
-    while(numbersArray.length < 100){
-    /* numbersArray.push(getRandomNumber(100)); */        
-        /* console.log(numbersArray); */
-        // insrisci il numero solo se non è già presente
-        const newNumber = getRandomNumber(100) ;
-        //controllo se il numero è già presente ne nostro array
-        if( ! numbersArray.includes(newNumber)){
-            numbersArray.push(newNumber);
-        }
-    
     }
-     // per farlo apparire in pagina devo fare il return del mio array
-     return numbersArray;
-}
+    getRandomNumbersArray();
+    function getRandomNumbersArray(){
+
+        const numbersArray = [];
+
+        while(numbersArray.length < 100){
+        //numbersArray.push(getRandomNumber(100));     
+            // console.log(numbersArray); 
+            // insrisci il numero solo se non è già presente
+            const newNumber = getRandomNumber(100) ;
+            //controllo se il numero è già presente ne nostro array
+            if( ! numbersArray.includes(newNumber)){
+                numbersArray.push(newNumber);
+            }
+        
+        }
+        // per farlo apparire in pagina devo fare il return del mio array
+        return numbersArray;
+    }
+
+*/
